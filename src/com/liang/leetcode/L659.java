@@ -47,8 +47,8 @@ public class L659 {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 3, 4, 5};
+        int[] numbers = {1, 2, 3, 3, 4, 5};
         L659 l = new L659();
-        System.out.println(l.isPossible(nums));
+        System.out.println(l.isPossible(numbers));
     }
 }
