@@ -16,7 +16,7 @@ public class NestedIterator implements Iterator<Integer>  {
 
     public NestedIterator(List<NestedInteger> nestedList) {
 
-        //TODO 思路没理清楚，待做
+        //TODO LeetCode341 思路没理清楚，待做
 
         list = nestedList;
     }
