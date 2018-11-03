@@ -48,17 +48,10 @@ public class L36 {
                 if (charBoard[i][j] =='.') {
                     continue;
                 }
-                if (checkRow(i, j)) {
-                    if (checkCol(i, j)) {
-                        if (checkSquared(i, j)) {
-                            continue;
-                        }else{
-                            return false;
-                        }
-                    }else{
-                        return false;
-                    }
+                if (checkRow(i, j) && checkCol(i, j) && checkSquared(i, j)) {
+                    continue;
                 }else{
+
                     return false;
                 }
             }
@@ -69,6 +62,7 @@ public class L36 {
     public static boolean checkRow(int row, int col) {
         for (int i = col+1; i < length; i++) {
             if (charBoard[row][col] == charBoard[row][i] && i != col) {
+                System.out.println(i+"列内有重复数字"+charBoard[row][col]);
                 return false;
             }
         }
@@ -78,6 +72,7 @@ public class L36 {
     public static boolean checkCol(int row, int col) {
         for (int i = row+1; i < length; i++) {
             if (charBoard[row][col] == charBoard[i][col] && i != row) {
+                System.out.println(i+"行内有重复数字"+charBoard[row][col]);
                 return false;
             }
         }
@@ -94,6 +89,7 @@ public class L36 {
         for (Integer r : rowList) {
             for (Integer c : colList) {
                 if(charBoard[row][col] == charBoard[r][c]){
+                    System.out.println("row:"+row+"，col:"+col+"，所在"+" 3*3 宫内有重复数字"+charBoard[row][col]);
                     return false;
                 }
             }
