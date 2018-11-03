@@ -11,6 +11,12 @@ import java.util.Map;
  */
 public class L659 {
 
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 3, 4, 5};
+        L659 l = new L659();
+        System.out.println(l.isPossible(numbers));
+    }
+
     /**
      * 将数组分隔为连续子序列
      */
@@ -44,11 +50,5 @@ public class L659 {
             freq.put(i, freq.get(i) - 1);
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        int[] numbers = {1, 2, 3, 3, 4, 5};
-        L659 l = new L659();
-        System.out.println(l.isPossible(numbers));
     }
 }
