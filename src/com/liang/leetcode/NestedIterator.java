@@ -1,7 +1,6 @@
 package com.liang.leetcode;
 
 import com.liang.leetcode.Interface.L341.NestedInteger;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -13,7 +12,14 @@ import java.util.List;
  */
 public class NestedIterator implements Iterator<Integer>  {
 
-    List<Integer> result = new ArrayList();
+    List<NestedInteger> list ;
+
+    public NestedIterator(List<NestedInteger> nestedList) {
+
+        //TODO 思路没理清楚，待做
+
+        list = nestedList;
+    }
 
     @Override
     public boolean hasNext() {
@@ -24,4 +30,5 @@ public class NestedIterator implements Iterator<Integer>  {
     public Integer next() {
         return null;
     }
+
 }
