@@ -10,9 +10,9 @@ import java.util.List;
  * @Author LiaNg
  * @Date 2018/11/3
  */
-public class NestedIterator implements Iterator<Integer>  {
+public class NestedIterator implements Iterator<Integer> {
 
-    List<NestedInteger> list ;
+    List<NestedInteger> list;
 
     public NestedIterator(List<NestedInteger> nestedList) {
 
@@ -23,11 +23,13 @@ public class NestedIterator implements Iterator<Integer>  {
 
     @Override
     public boolean hasNext() {
+
         return false;
     }
 
     @Override
     public Integer next() {
+
         return null;
     }
 

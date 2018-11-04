@@ -7,8 +7,11 @@ import java.util.List;
  * @Date ：Created in 10:00 2018/11/3
  */
 public interface NestedInteger {
+
     public boolean isInteger();
+
     public Integer getInteger();
+
     public List<NestedInteger> getList();
 
 }

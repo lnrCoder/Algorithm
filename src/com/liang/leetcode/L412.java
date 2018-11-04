@@ -32,11 +32,11 @@ public class L412 {
                 value = "Fizz";
             }
             if (i % 5 == 0) {
-                value = value+"Buzz";
+                value = value + "Buzz";
             }
-            if("".equals(value)){
+            if ("".equals(value)) {
                 list.add(String.valueOf(i));
-            }else{
+            } else {
                 list.add(value);
             }
         }

@@ -9,14 +9,15 @@ package com.liang.algorithm;
 public class InsertionSort {
 
     public static void main(String[] args) {
-        int[] numbers = {4,5,6,1,3,2};
+        int[] numbers = {4, 5, 6, 1, 3, 2};
 
         InsertionSort is = new InsertionSort();
-        is.insertionSort(numbers,numbers.length);
+        is.insertionSort(numbers, numbers.length);
     }
 
     /**
      * 插入排序
+     *
      * @param numbers 数组
      * @param length 数组大小
      */

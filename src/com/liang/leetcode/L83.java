@@ -11,34 +11,31 @@ import com.liang.leetcode.Interface.L83.ListNode;
 public class L83 {
 
     public static void main(String[] args) {
-        int[] input=new int[]{1,1,2,3,3};
-        ListNode listNode= ListNode.buildListNode(input);
+        int[] input = new int[]{1, 1, 2, 3, 3};
+        ListNode listNode = ListNode.buildListNode(input);
 
         L83 l = new L83();
         l.deleteDuplicates(listNode);
 
-        while(listNode!=null){
-            System.out.println("val:"+listNode.val);
-            listNode=listNode.next;
+        while (listNode != null) {
+            System.out.println("val:" + listNode.val);
+            listNode = listNode.next;
         }
     }
 
     /**
      * 删除排序链表中的重复元素
-     * @param head
-     * @return
      */
     public ListNode deleteDuplicates(ListNode head) {
-        ListNode now=head;
-        if(now==null){
+        ListNode now = head;
+        if (now == null) {
             return null;
         }
-        while(now.next!=null){
-            if(now.val==now.next.val){
-                now.next=now.next.next;
-            }
-            else{
-                now=now.next;
+        while (now.next != null) {
+            if (now.val == now.next.val) {
+                now.next = now.next.next;
+            } else {
+                now = now.next;
             }
         }
         return head;
