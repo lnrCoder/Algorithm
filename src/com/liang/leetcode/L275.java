@@ -10,11 +10,10 @@ import java.util.Calendar;
  */
 public class L275 {
 
-
     public static void main(String[] args) {
         L275 l = new L275();
 
-        int[] numbers = {0};
+        int[] numbers = {0,1,3,5,6};
         System.out.println(l.hIndex(numbers));
     }
 
