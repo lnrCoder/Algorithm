@@ -13,7 +13,6 @@ public class SelectionSort {
 
         SelectionSort ss = new SelectionSort();
         ss.selectionSort(numbers, numbers.length);
-
     }
 
     /**
