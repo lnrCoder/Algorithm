@@ -19,6 +19,7 @@ public class SelectionSort {
     /**
      * 选择排序
      *
+     * @description 找出未排序中最小值下标，将最小值与当前值交换位置
      * @param numbers 数组
      * @param length 数组大小
      */

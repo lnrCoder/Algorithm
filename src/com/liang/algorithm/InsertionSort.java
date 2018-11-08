@@ -18,6 +18,7 @@ public class InsertionSort {
     /**
      * 插入排序
      *
+     * @description 与当前值之前的值比较，大值放后面
      * @param numbers 数组
      * @param length 数组大小
      */

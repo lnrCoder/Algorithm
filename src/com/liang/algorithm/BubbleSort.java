@@ -18,6 +18,7 @@ public class BubbleSort {
     /**
      * 冒泡排序
      *
+     * @description 逐步两两比较，大的值放后面
      * @param numbers 数组
      * @param size 数组大小
      */
