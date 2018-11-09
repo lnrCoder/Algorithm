@@ -5,7 +5,7 @@ import java.util.Calendar;
 /**
  * @ClassName L275
  * @description h-index-ii
- * @Author levo
+ * @Author LiaNg
  * @Date 2018/11/7
  */
 public class L275 {
