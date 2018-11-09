@@ -15,8 +15,8 @@ public class L169 {
     public static void main(String[] args) {
 
         int[] nums = {3, 2, 1};
-        L169 l = new L169();
 
+        L169 l = new L169();
         l.majorityElement(nums);
     }
 
