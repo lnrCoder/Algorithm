@@ -14,7 +14,7 @@ public class Java8Lambda {
 
     public static void main(String[] args) {
         Java8Lambda lambda = new Java8Lambda();
-        lambda.mapReduce();
+        lambda.forList();
     }
 
     public void newThread() {
@@ -23,7 +23,10 @@ public class Java8Lambda {
 
     public void forList() {
         List list = Arrays.asList("a", "b", "c", "d");
-        list.forEach(n -> System.out.println(n));
+        list.forEach(n -> {
+            System.out.printf("====%s====\n",n);
+            System.out.println(n);
+        });
         System.out.println("-------------------");
         list.forEach(System.out::println);
     }
@@ -38,9 +41,9 @@ public class Java8Lambda {
                 .forEach((n) -> System.out.println("Name, which starts with'J' and four letter long is : " + n));
     }
 
-    public void mapReduce(){
+    public void mapReduce() {
         List<Integer> costBeforeTax = Arrays.asList(100, 200, 300, 400, 500);
-        costBeforeTax.stream().map((cost) -> cost + 0.12*cost)
+        costBeforeTax.stream().map((cost) -> cost + 0.12 * cost)
                 .forEach(System.out::println);
     }
 }
