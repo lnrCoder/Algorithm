@@ -44,7 +44,7 @@ public class ConsistentHashingWithVirtualNode {
         // 再添加虚拟节点，遍历LinkedList使用foreach循环效率会比较高
         for (String str : realNodes) {
             for (int i = 0; i < VIRTUAL_NODES; i++) {
-                String virtualNodeName = str + "&&VN" + String.valueOf(i);
+                String virtualNodeName = str + "&&VN" + i;
                 int hash = getHash(virtualNodeName);
                 System.out.println("虚拟节点[" + virtualNodeName + "]被添加, hash值为" + hash);
                 virtualNodes.put(hash, virtualNodeName);
@@ -89,6 +89,7 @@ public class ConsistentHashingWithVirtualNode {
         // 返回对应的虚拟节点名称，这里字符串稍微截取一下
         String virtualNode = subMap.get(i);
         return virtualNode.substring(0, virtualNode.indexOf("&&"));
+//        return virtualNode;
     }
 
     public static void main(String[] args) {
