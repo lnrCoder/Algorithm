@@ -11,13 +11,12 @@ import java.util.Map;
  */
 public class L169 {
 
-
     public static void main(String[] args) {
 
         int[] nums = {3, 2, 1};
 
         L169 l = new L169();
-        l.majorityElement(nums);
+        System.out.println(l.majorityElement(nums));
     }
 
     public int majorityElement(int[] nums) {
