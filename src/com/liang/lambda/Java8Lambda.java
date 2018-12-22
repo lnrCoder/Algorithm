@@ -1,7 +1,9 @@
 package com.liang.lambda;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 
 /**
@@ -14,7 +16,7 @@ public class Java8Lambda {
 
     public static void main(String[] args) {
         Java8Lambda lambda = new Java8Lambda();
-        lambda.forList();
+        lambda.mapEach();
     }
 
     public void newThread() {
@@ -46,4 +48,14 @@ public class Java8Lambda {
         costBeforeTax.stream().map((cost) -> cost + 0.12 * cost)
                 .forEach(System.out::println);
     }
+
+    public void mapEach(){
+        Map map = new HashMap<>();
+        map.put("1","a");
+        map.put("2","b");
+        map.forEach((k, v) -> System.out.println("key:value = " + k + ":" + v));
+    }
+
+
+
 }
