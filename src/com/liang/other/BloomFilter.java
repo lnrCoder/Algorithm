@@ -3,6 +3,7 @@ package com.liang.other;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 /**
  * @Author LiaNg
@@ -21,21 +22,28 @@ public class BloomFilter {
         //测试代码
         BloomFilter bf = new BloomFilter();
 
-        for (int i = 0; i < 100; ) {
-            bf.addElement(i);
-            i = i + 2;
-            System.out.println("i = " + i);
+        ArrayList<String> list = new ArrayList<>();
+        list.add("www.baidu.com");
+        list.add("www.qq.com");
+        list.add("www.163.com");
+        list.add("www.sina.com");
+        list.add("www.google.com");
+        for (String value : list) {
+            bf.addElement(value);
         }
 
-        for (int i = 0; i < 100; i++) {
-            System.out.println("bf = " + bf.check(i));
+        list.add("www.facebook.com");
+        list.add("www.youtube.com");
+
+        for (String s : list) {
+            System.out.println(s + " = " + bf.check(s));
         }
     }
 
-    private int getHash(Integer msg, int n) {
+    private int getHash(String msg, int n) {
         try {
             MessageDigest md5 = MessageDigest.getInstance("md5");
-            String message = msg + String.valueOf(n);
+            String message = msg + n;
             byte[] bytes = message.getBytes();
             md5.update(bytes);
             BigInteger bi = new BigInteger(md5.digest());
@@ -47,7 +55,7 @@ public class BloomFilter {
         return -1;
     }
 
-    private void addElement(Integer message) {
+    private void addElement(String message) {
         for (int i = 0; i < NUM_HASH; i++) {
             int hashcode = getHash(message, i);
             if (!bitmap.testBit(hashcode)) {
@@ -56,7 +64,7 @@ public class BloomFilter {
         }
     }
 
-    private boolean check(Integer message) {
+    private boolean check(String message) {
         for (int i = 0; i < NUM_HASH; i++) {
             int hashcode = getHash(message, i);
             if (!this.bitmap.testBit(hashcode)) {
