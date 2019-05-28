@@ -1,7 +1,5 @@
 package com.liang.algorithm;
 
-import java.util.Arrays;
-
 /**
  * @ClassName InsertionSort
  * @description 插入排序
@@ -69,8 +67,6 @@ public class InsertionSort {
             }
             // 更目标数的位置。
             arr[j] = target;
-            //打印每次循环结束之后数组的排序状态（方便理解）
-            System.out.println("第" + (i) + "次循环之后效果：" + Arrays.toString(arr));
         }
     }
 
