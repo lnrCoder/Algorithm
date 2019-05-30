@@ -72,28 +72,6 @@ public class LFUMap<K, V> extends HashMap<K, V> {
         }
     }
 
-    public static void main(String[] args) {
-        LFUMap<String, String> cache = new LFUMap<>();
-        cache.put("a", "a");
-        cache.put("b", "b");
-        cache.put("c", "c");
-        
-        cache.keySet().forEach(System.out::print);
-        System.out.println();
-
-        cache.get("a");
-
-        cache.put("d", "d");
-
-        cache.keySet().forEach(System.out::print);
-        System.out.println();
-
-        cache.get("d");
-
-        cache.put("e", "e");
-
-        cache.keySet().forEach(System.out::print);
-    }
 }
 
 
