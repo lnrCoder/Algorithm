@@ -11,8 +11,10 @@ public class Solution {
     public static void main(String[] args) {
 
 //        count1(11);
+//        aplusb(10, 6);
 
-        aplusb(10, 6);
+        powerOf2(9);
+
     }
 
     /**
@@ -36,11 +38,15 @@ public class Solution {
             int newa = a ^ b;
             System.out.println("Integer.toBinaryString(newa) = " + Integer.toBinaryString(newa));
             int newb = (a & b) << 1;
-            System.out.println("Integer.toBinaryString(a&b) = " + Integer.toBinaryString(a&b));
+            System.out.println("Integer.toBinaryString(a&b) = " + Integer.toBinaryString(a & b));
             System.out.println("Integer.toBinaryString(newb) = " + Integer.toBinaryString(newb));
             a = newa;
             b = newb;
         }
         System.out.println("a = " + a);
+    }
+
+    private static void powerOf2(int num) {
+        System.out.println("num > 0 && (num & (num - 1) ==0) = " + (num > 0 && (num & (num - 1)) == 0));
     }
 }
