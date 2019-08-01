@@ -18,7 +18,7 @@ public class Solution {
     }
 
     /**
-     * @param num 求二进制中 1 的个数
+     * 求二进制中 1 的个数
      */
     private static void count1(int num) {
         int count = 0;
@@ -31,6 +31,9 @@ public class Solution {
         System.out.println("count = " + count);
     }
 
+    /**
+     * 位运算两数求和
+     */
     private static void aplusb(int a, int b) {
         System.out.println("Integer.toBinaryString(a) = " + Integer.toBinaryString(a));
         System.out.println("Integer.toBinaryString(b) = " + Integer.toBinaryString(b));
@@ -46,6 +49,9 @@ public class Solution {
         System.out.println("a = " + a);
     }
 
+    /**
+     * 判断一个数是否是 2 的次幂
+     */
     private static void powerOf2(int num) {
         System.out.println("num > 0 && (num & (num - 1) ==0) = " + (num > 0 && (num & (num - 1)) == 0));
     }
