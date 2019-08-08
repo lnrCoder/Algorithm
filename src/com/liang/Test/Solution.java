@@ -1,5 +1,8 @@
 package com.liang.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * @ClassName Solution
  * @description
@@ -13,7 +16,12 @@ public class Solution {
 //        count1(11);
 //        aplusb(10, 6);
 
-        powerOf2(9);
+//        powerOf2(9);
+
+//        bitSwap(3, 5);
+
+        int[] nums = {1, 3, 5, 2, 7,  8};
+        subSets(nums);
 
     }
 
@@ -55,4 +63,47 @@ public class Solution {
     private static void powerOf2(int num) {
         System.out.println("num > 0 && (num & (num - 1) ==0) = " + (num > 0 && (num & (num - 1)) == 0));
     }
+
+    /**
+     * 计算在一个 32 位的整数的二进制表式中有多少个 1
+     */
+    private static int countOnes(int num) {
+
+        int count = 0;
+        while (num != 0) {
+            num = num & (num - 1);
+            count++;
+        }
+        return count;
+
+    }
+
+    /**
+     * 将整数 A 转换为 B，需要改变多少个 bit 位
+     */
+    private static void bitSwap(int a, int b) {
+
+        int counts = countOnes(a ^ b);
+        System.out.println("counts = " + counts);
+
+    }
+
+    private static void subSets(int[] nums) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        int n = nums.length;
+        Arrays.sort(nums);
+
+        for (int i = 0; i < (1 << n); i++) {
+            ArrayList<Integer> subList = new ArrayList<>();
+            for (int j = 0; j < n; j++) {
+                if ((i & (1 << j)) != 0) {
+                    subList.add(nums[j]);
+                }
+            }
+            result.add(subList);
+        }
+        System.out.println("result = " + result);
+
+    }
+
 }
