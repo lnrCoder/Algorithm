@@ -86,14 +86,14 @@ public class Solution {
         int counts = countOnes(a ^ b);
         System.out.println("counts = " + counts);
 
-    }
+        }
 
-    private static void subSets(int[] nums) {
-        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
-        int n = nums.length;
-        Arrays.sort(nums);
+        private static void subSets(int[] nums) {
+            ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+            int n = nums.length;
+            Arrays.sort(nums);
 
-        for (int i = 0; i < (1 << n); i++) {
+            for (int i = 0; i < (1 << n); i++) {
             ArrayList<Integer> subList = new ArrayList<>();
             for (int j = 0; j < n; j++) {
                 if ((i & (1 << j)) != 0) {
@@ -105,5 +105,7 @@ public class Solution {
         System.out.println("result = " + result);
 
     }
+
+
 
 }
