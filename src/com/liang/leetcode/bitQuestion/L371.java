@@ -12,6 +12,8 @@ public class L371 {
         int a = 3;
         int b = 5;
         int sum = getSum(a, b);
+
+
         System.out.println("sum = " + sum);
     }
 
