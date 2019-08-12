@@ -20,9 +20,21 @@ public class Solution {
 
 //        bitSwap(3, 5);
 
-        int[] nums = {1, 3, 5, 2, 7,  8};
-        subSets(nums);
+//        int[] nums = {1, 3, 5, 2, 7,  8};
+//        subSets(nums);
 
+        int a =11;
+        System.out.println("Integer.toBinaryString(a) = " + Integer.toBinaryString(a));
+        System.out.println("Integer.toBinaryString(~a) = " + Integer.toBinaryString(~a));
+        System.out.println("Integer.toBinaryString(-a) = " + Integer.toBinaryString(-a));
+
+        a =-11;
+        System.out.println("Integer.toBinaryString(a) = " + Integer.toBinaryString(a));
+        System.out.println("Integer.toBinaryString(~a) = " + Integer.toBinaryString(~a));
+        System.out.println("Integer.toBinaryString(-a) = " + Integer.toBinaryString(-a));
+
+        a = a&-a;
+        System.out.println("a = " + a);
     }
 
     /**
