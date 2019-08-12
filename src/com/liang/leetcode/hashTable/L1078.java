@@ -30,7 +30,7 @@ public class L1078 {
         }
 
         List<String> resultList = new ArrayList<>();
-        for (int i = 0; i < strings.length - 1; i++) {
+        for (int i = 0; i < strings.length - 2; i++) {
             if (first.equals(map.get(i)) && second.equals(map.get(i + 1))) {
                 resultList.add(map.get(i + 2));
             }
