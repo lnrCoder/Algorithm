@@ -10,7 +10,6 @@ import java.nio.channels.WritableByteChannel;
 import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-import javax.validation.constraints.NotNull;
 
 /**
  * @ClassName ZipTools
