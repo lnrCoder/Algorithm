@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
@@ -98,6 +100,31 @@ public class ZipUtils {
                 }
             }
             System.out.println("============ zipFileChannel ==============");
+            printTime(beginTime);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void zipFileMap() {
+        //开始时间
+        long beginTime = System.currentTimeMillis();
+
+        String ZIP_FILE = "D:/ziptest/TestMap.zip";
+
+        File zipFile = new File(ZIP_FILE);
+        try (ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(zipFile));
+                WritableByteChannel writableByteChannel = Channels.newChannel(zipOut)) {
+            for (int i = 0; i < 5; i++) {
+                zipOut.putNextEntry(new ZipEntry("aaa"+i));
+
+                //内存中的映射文件
+                MappedByteBuffer mappedByteBuffer = new RandomAccessFile(FILE_PATH, "r").getChannel()
+                        .map(FileChannel.MapMode.READ_ONLY, 0, new File(FILE_PATH).length());
+
+                writableByteChannel.write(mappedByteBuffer);
+            }
+            System.out.println("============ zipFileMap ==============");
             printTime(beginTime);
         } catch (Exception e) {
             e.printStackTrace();
