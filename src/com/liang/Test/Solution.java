@@ -1,7 +1,10 @@
 package com.liang.Test;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @ClassName Solution
@@ -13,6 +16,17 @@ public class Solution {
 
     public static void main(String[] args) {
 
+
+        long xx = Calendar.getInstance().getTimeInMillis();
+        Date date = new Date();
+        SimpleDateFormat sfd = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String time = sfd.format(date);
+        long time1 = date.getTime();
+
+        System.out.println("time = " + time);
+        System.out.println("\"C9La6f\" + a = " + "C9La6f" + time1);
+
+
 //        count1(11);
 //        aplusb(10, 6);
 
@@ -23,18 +37,52 @@ public class Solution {
 //        int[] nums = {1, 3, 5, 2, 7,  8};
 //        subSets(nums);
 
-        int a =11;
-        System.out.println("Integer.toBinaryString(a) = " + Integer.toBinaryString(a));
-        System.out.println("Integer.toBinaryString(~a) = " + Integer.toBinaryString(~a));
-        System.out.println("Integer.toBinaryString(-a) = " + Integer.toBinaryString(-a));
+//        int c =11;
+//        System.out.println("Integer.toBinaryString(c) = " + Integer.toBinaryString(c));
+//        System.out.println("Integer.toBinaryString(~c) = " + Integer.toBinaryString(~c));
+//        System.out.println("Integer.toBinaryString(-c) = " + Integer.toBinaryString(-c));
+//
+//        c =-11;
+//        System.out.println("Integer.toBinaryString(c) = " + Integer.toBinaryString(c));
+//        System.out.println("Integer.toBinaryString(~c) = " + Integer.toBinaryString(~c));
+//        System.out.println("Integer.toBinaryString(-c) = " + Integer.toBinaryString(-c));
+//
+//        c = c&-c;
+//        System.out.println("c = " + c);
 
-        a =-11;
-        System.out.println("Integer.toBinaryString(a) = " + Integer.toBinaryString(a));
-        System.out.println("Integer.toBinaryString(~a) = " + Integer.toBinaryString(~a));
-        System.out.println("Integer.toBinaryString(-a) = " + Integer.toBinaryString(-a));
+        int a = 0;
+        for (int i = 0; i < 99; i++) {
+            a = a++;
+        }
+        System.out.println(a);
+        int b = 0;
+        for (int i = 0; i < 99; i++) {
+            b = ++ b;
+        }
+        System.out.println(b);
+        int c = 0;
+        int d = 0;
+        for (int i = 0; i < 99; i++) {
+            c = c++;
+            d = c++;
+        }
+        System.out.println(c);
+        System.out.println(d);
 
-        a = a&-a;
-        System.out.println("a = " + a);
+        int e = 0;
+        int f = 0;
+        for (int i = 0; i < 99; i++) {
+            e++;
+            ++f;
+        }
+
+
+        System.out.println("e = " + e);
+        System.out.println("f = " + f);
+
+        int x = 'a'-'b';
+
+        System.out.println("x = " + x);
     }
 
     /**
