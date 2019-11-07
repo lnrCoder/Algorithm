@@ -14,7 +14,7 @@ public class L682 {
 
     public static void main(String[] args) {
         String[] ops = new String[]{"5", "-2", "4", "C", "D", "9", "+", "+"};
-        System.out.println("calPoints(ops) = " + calPoints(ops));
+        System.out.println("calPoints(ops) = " + calPoints1(ops));
     }
 
     /**
@@ -54,5 +54,33 @@ public class L682 {
         return result;
     }
 
+    /**
+     * Stack 改用 Deque
+     */
+    public static int calPoints1(String[] ops) {
 
+        int result = 0;
+        Deque<Integer> deque = new ArrayDeque<>();
+
+        for (String op : ops) {
+            if ("+".equals(op)) {
+                int lastOne = deque.pollLast();
+                int lastTwo = deque.getLast();
+                deque.addLast(lastOne);
+                deque.addLast(lastOne + lastTwo);
+            } else if ("D".equals(op)) {
+                deque.addLast(deque.getLast() << 1);
+            } else if ("C".equals(op)) {
+                deque.removeLast();
+            } else {
+                deque.addLast(Integer.valueOf(op));
+            }
+        }
+
+        while (!deque.isEmpty()) {
+            result += deque.pop();
+        }
+
+        return result;
+    }
 }
