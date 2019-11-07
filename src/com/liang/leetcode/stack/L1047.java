@@ -31,13 +31,10 @@ public class L1047 {
         }
 
         Deque deque = new ArrayDeque<>();
-
         char[] charArray = S.toCharArray();
-
         deque.addLast(charArray[0]);
 
         for (int i = 1; i < charArray.length; i++) {
-
             if (!deque.isEmpty() && deque.peekLast().equals(charArray[i])) {
                 deque.pollLast();
                 continue;
