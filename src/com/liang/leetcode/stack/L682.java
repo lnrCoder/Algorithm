@@ -14,7 +14,7 @@ public class L682 {
 
     public static void main(String[] args) {
         String[] ops = new String[]{"5", "-2", "4", "C", "D", "9", "+", "+"};
-        System.out.println("calPoints(ops) = " + calPoints1(ops));
+        System.out.println("calPoints(ops) = " + calPoints(ops));
     }
 
     /**
