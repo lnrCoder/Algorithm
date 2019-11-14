@@ -57,4 +57,26 @@ public class L844 {
 
         return true;
     }
+
+    /**
+     * LeetCode 耗时最短解答
+     */
+    public boolean backspaceCompare1(String S, String T) {
+        return decode(S).equals(decode(T));
+    }
+
+    private String decode(String s) {
+        char[] buf = s.toCharArray();
+        int i = 0;
+        for (int j = 0; j < s.length(); j++) {
+            if (buf[j] == '#') {
+                if (i > 0) {
+                    i--;
+                }
+            } else {
+                buf[i++] = buf[j];
+            }
+        }
+        return new String(buf, 0, i);
+    }
 }
