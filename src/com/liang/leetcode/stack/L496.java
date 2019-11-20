@@ -14,8 +14,8 @@ import java.util.Stack;
 public class L496 {
 
     public static void main(String[] args) {
-        int[] nums1 = new int[]{4, 1, 2};
-        int[] nums2 = new int[]{1, 3, 4, 2};
+        int[] nums1 = new int[]{1, 2, 5, 2, 4};
+        int[] nums2 = new int[]{6, 5, 4, 3, 2, 1, 7};
 
         L496 l496 = new L496();
         System.out.println("l496.nextGreaterElement(nums1,nums2) = " + Arrays
@@ -36,7 +36,7 @@ public class L496 {
         Stack<Integer> stack = new Stack<>();
 
         for (int num : nums2) {
-            if (!stack.empty()&& stack.peek() < num) {
+            while (!stack.empty() && stack.peek() < num) {
                 kv.put(stack.pop(), num);
             }
             stack.push(num);
