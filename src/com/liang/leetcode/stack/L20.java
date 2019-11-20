@@ -48,4 +48,27 @@ public class L20 {
 
         return stack.empty();
     }
+
+    /**
+     * LeetCode 耗时最短解答
+     */
+    public boolean isValid1(String s) {
+        if ("".equals(s)) {
+            return true;
+        }
+        char[] stack = new char[s.length()];
+        int stackCur = -1;
+        char[] split = s.toCharArray();
+        for (char cur : split) {
+            if (cur == '{' || cur == '(' || cur == '[') {
+                stack[++stackCur] = cur;
+            } else if (stackCur == -1
+                    || cur == ')' && stack[stackCur--] != '('
+                    || cur == ']' && stack[stackCur--] != '['
+                    || cur == '}' && stack[stackCur--] != '{') {
+                return false;
+            }
+        }
+        return stackCur == -1;
+    }
 }
