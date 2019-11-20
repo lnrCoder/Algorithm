@@ -48,4 +48,26 @@ public class L496 {
 
         return result;
     }
+
+    /**
+     * LeetCode Java 耗时最短解答
+     */
+    public int[] nextGreaterElement1(int[] nums1, int[] nums2) {
+        int[] map = new int[10001];
+        int[] res = new int [nums1.length];
+        int[] stack = new int[nums2.length];
+        int top = -1;
+        for (int i = 0; i < nums2.length; i++){
+            map[nums2[i]]=-1;
+            while (top != -1 && nums2[i] > nums2[stack[top]]) {
+                map[nums2[stack[top--]]] = nums2[i];
+            }
+            stack[++top]=i;
+        }
+        for (int i = 0; i < nums1.length; i++){
+            res[i] = map[nums1[i]];
+
+        }
+        return res;
+    }
 }
