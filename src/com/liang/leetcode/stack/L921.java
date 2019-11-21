@@ -35,11 +35,11 @@ public class L921 {
         Stack<Character> stack = new Stack<>();
 
         for (char c : S.toCharArray()) {
-            if(c==')' && stack.empty()){
-                result ++;
-            }else if(c =='('){
+            if (c == ')' && stack.empty()) {
+                result++;
+            } else if (c == '(') {
                 stack.push(c);
-            }else{
+            } else {
                 stack.pop();
             }
         }
@@ -47,4 +47,23 @@ public class L921 {
         return result + stack.size();
     }
 
+    /**
+     * LeetCode 耗时最短解答
+     */
+    public int minAddToMakeValid1(String S) {
+        int left = 0;
+        int res = 0;
+        for (char ch : S.toCharArray()) {
+            if ('(' == ch) {
+                left++;
+            } else {
+                if (left > 0) {
+                    left--;
+                } else {
+                    res++;
+                }
+            }
+        }
+        return left + res;
+    }
 }
