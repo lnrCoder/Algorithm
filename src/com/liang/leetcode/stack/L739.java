@@ -73,4 +73,26 @@ public class L739 {
         return r;
     }
 
+    /**
+     * LeetCode 耗时最短解答
+     */
+    public int[] dailyTemperatures2(int[] T) {
+        int[] predict = new int[T.length];
+
+        for (int i = T.length - 1; i >= 0; i--) {
+            for (int j = i + 1; j < T.length; j++) {
+                if (T[j] > T[i]) {
+                    predict[i] = j - i;
+                    break;
+                } else if (predict[j] == 0) {
+                    break;
+                } else {
+                    j += predict[j] - 1;
+                }
+            }
+        }
+
+        return predict;
+    }
+
 }
