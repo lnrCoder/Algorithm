@@ -46,8 +46,7 @@ public class L1209 {
             }
         }
 
-        // 拼接
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (Integer[] integers : stack) {
             sb.append((char) (integers[0] + 'a'));
         }
