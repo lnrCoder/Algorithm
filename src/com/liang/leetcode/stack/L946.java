@@ -20,6 +20,12 @@ public class L946 {
                 .println("l946.validateStackSequences(pushed,popped) = " + l946.validateStackSequences(pushed, popped));
     }
 
+    /**
+     * 给定 pushed 和 popped 两个序列，每个序列中的 值都不重复，只有当它们可能是在最初空栈上进行的推入 push 和弹出 pop 操作序列的结果时，返回 true；否则，返回 false 。
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode-cn.com/problems/validate-stack-sequences
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
     public boolean validateStackSequences(int[] pushed, int[] popped) {
 
         int index = 0;
@@ -38,7 +44,7 @@ public class L946 {
             }
         }
 
-        return stack.size() == 0;
+        return stack.empty();
     }
 
     /**
