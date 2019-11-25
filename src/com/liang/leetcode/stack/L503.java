@@ -14,7 +14,7 @@ public class L503 {
     public static void main(String[] args) {
         int[] nums = new int[]{1,2,1};
         L503 l503 = new L503();
-        System.out.println("l503.nextGreaterElements(nums) = " + l503.nextGreaterElements(nums));
+        System.out.println("l503.nextGreaterElements(nums) = " + Arrays.toString(l503.nextGreaterElements(nums)));
     }
 
     public int[] nextGreaterElements(int[] nums) {
@@ -22,29 +22,15 @@ public class L503 {
 
         Stack<Integer[]> stack = new Stack<>();
 
-        for (int i = 0; i < nums.length; i++) {
+        Arrays.fill(result, -1);
 
-            if (stack.empty() || nums[i] < stack.peek()[1]) {
-                stack.push(new Integer[]{i,nums[i]});
-            }else {
-                Integer[] pop = stack.pop();
-                result[pop[0]] = nums[i];
+        for (int i = 0; i < nums.length*2; i++) {
+
+            while (!stack.empty() && nums[i%nums.length] > stack.peek()[1]) {
+                result[stack.pop()[0]] = nums[i % nums.length];
             }
-        }
 
-        System.out.println("result = " + Arrays.toString(result));
-
-        for (int i = 0; i < nums.length; i++) {
-
-            if (result[i] == 0) {
-
-            }
-            if (stack.empty() || nums[i] < stack.peek()[1]) {
-                stack.push(new Integer[]{i,nums[i]});
-            }else {
-                Integer[] pop = stack.pop();
-                result[pop[0]] = nums[i];
-            }
+            stack.push(new Integer[]{i%nums.length,nums[i%nums.length]});
         }
 
         return result;
