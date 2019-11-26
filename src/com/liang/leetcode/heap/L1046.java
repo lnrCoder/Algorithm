@@ -50,4 +50,49 @@ public class L1046 {
 
         return pq.isEmpty() ? 0 : pq.poll();
     }
+
+    /**
+     * LeetCode 耗时最短解答
+     */
+    public int lastStoneWeight1(int[] stones) {
+        if (stones.length == 1) {
+            return stones[0];
+        }
+        if (stones.length == 2) {
+            return stones[0] > stones[1] ? stones[0] - stones[1] : stones[1] - stones[0];
+        }
+        for (int i = stones.length / 2 - 1; i >= 0; i--) {
+            adjustHeap(stones, i, stones.length);
+        }
+        int temp = stones[1] > stones[2] ? stones[1] : stones[2];
+        while (temp != 0) {
+            stones[0] -= temp;
+            if (stones[1] > stones[2]) {
+                stones[1] = 0;
+            } else {
+                stones[2] = 0;
+            }
+            for (int i = 2; i >= 0; i--) {
+                adjustHeap(stones, i, stones.length);
+            }
+            temp = stones[1] > stones[2] ? stones[1] : stones[2];
+        }
+        return stones[0];
+    }
+
+    public void adjustHeap(int[] arr, int i, int length) {
+        int temp = arr[i];
+        for (int k = 2 * i + 1; k < length; k = k * 2 + 1) {
+            if (k + 1 < length && arr[k] < arr[k + 1]) {
+                k++;
+            }
+            if (arr[k] > temp) {
+                arr[i] = arr[k];
+                i = k;
+            } else {
+                break;
+            }
+        }
+        arr[i] = temp;
+    }
 }
