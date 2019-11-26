@@ -1,4 +1,4 @@
-package com.liang.leetcode.bitQuestion;
+package com.liang.leetcode.bitManipulation;
 
 /**
  * @ClassName L201

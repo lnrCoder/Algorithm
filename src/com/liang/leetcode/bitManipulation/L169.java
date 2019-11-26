@@ -1,6 +1,4 @@
-package com.liang.leetcode.bitQuestion;
-
-import java.util.Arrays;
+package com.liang.leetcode.bitManipulation;
 
 /**
  * @ClassName L169
