@@ -99,7 +99,6 @@ public class L767 {
             index = getResult(count, res, index, (char) ('a' + i));
         }
         return new String(res);
-
     }
 
     private int getResult(int[] count, char[] res, int index, char letter) {
