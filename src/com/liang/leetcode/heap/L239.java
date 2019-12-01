@@ -27,7 +27,9 @@ public class L239 {
      */
     public int[] maxSlidingWindow(int[] nums, int k) {
 
-        if(nums == null || nums.length < 2) return nums;
+        if (nums == null || nums.length < 2) {
+            return nums;
+        }
 
         int[] result = new int[nums.length - k + 1];
         LinkedList<Integer> linkedList = new LinkedList<>();
@@ -44,6 +46,7 @@ public class L239 {
                 result[i + 1 - k] = nums[linkedList.peek()];
             }
         }
+
         return result;
     }
 }
