@@ -49,4 +49,40 @@ public class L239 {
 
         return result;
     }
+
+    /**
+     * LeetCode 耗时最短解答
+     */
+    public int[] maxSlidingWindow1(int[] nums, int k) {
+        if (nums.length == 0) {
+            return new int[0];
+        }
+        int res[] = new int[nums.length - k + 1];
+        int max = Integer.MIN_VALUE;
+        int maxIndex = -1;
+        for (int i = 0; i <= nums.length - k; i++) {
+            if (i <= maxIndex) {
+                //只与新来的比
+                if (nums[i + k - 1] < max) {
+                    res[i] = max;
+                } else {
+                    max = nums[i + k - 1];
+                    maxIndex = i + k - 1;
+                    res[i] = max;
+                }
+                //重新寻找
+            } else {
+                max = Integer.MIN_VALUE;
+                for (int j = i; j < i + k; j++) {
+                    if (nums[j] > max) {
+                        max = nums[j];
+                        maxIndex = j;
+                    }
+                }
+                res[i] = max;
+            }
+
+        }
+        return res;
+    }
 }
