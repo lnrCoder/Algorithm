@@ -26,8 +26,8 @@ public class L239 {
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
     public int[] maxSlidingWindow(int[] nums, int k) {
-        int[] result = new int[nums.length - k + 1];
 
+        int[] result = new int[nums.length - k + 1];
         LinkedList<Integer> linkedList = new LinkedList<>();
 
         for (int i = 0; i < nums.length; i++) {
