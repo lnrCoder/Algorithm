@@ -18,18 +18,23 @@ public class L349 {
         int[] num1 = {1, 2, 3, 4, 5};
         int[] num2 = {2, 5, 6, 7, 8};
 
-        System.out.println("intersection2(num1,num2) = " + Arrays.toString(intersection2(num1, num2)));
-
+        L349 l349 = new L349();
+        System.out.println("l349.intersection1(num1,num2) = " + Arrays.toString(l349.intersection1(num1, num2)));
     }
 
+    /**
+     * 给定两个数组，编写一个函数来计算它们的交集。
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode-cn.com/problems/intersection-of-two-arrays
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
     private static int[] intersection(int[] nums1, int[] nums2) {
 
-        List<Integer> resultList = Arrays.stream(nums1).boxed().collect(Collectors.toList());
-
+        List<Integer> nums1List = Arrays.stream(nums1).boxed().collect(Collectors.toList());
         HashMap<Integer, Integer> map = new HashMap<>(nums2.length);
 
         for (int i : nums2) {
-            if (resultList.contains(i)) {
+            if (nums1List.contains(i)) {
                 map.put(i, i);
             }
         }
@@ -43,30 +48,28 @@ public class L349 {
         }
 
         return result;
-
     }
 
-    private static int[] intersection2(int[] nums1, int[] nums2) {
-
-        boolean[] ans = new boolean[1000];
-
-        for (int x : nums1) {
-            ans[x] = true;
+    /**
+     * LeetCode 耗时最短解答
+     */
+    public int[] intersection1(int[] nums1, int[] nums2) {
+        if (nums1.length == 0 || nums2.length == 0) {
+            return new int[0];
         }
-
-        int index = 0;
-        for (int x : nums2) {
-            if (ans[x]) {
-                ans[x] = false;
-                nums1[index++] = x;
+        boolean[] bool = new boolean[1200];
+        for (int value : nums1) {
+            bool[value] = true;
+        }
+        int k = 0;
+        for (int value : nums2) {
+            if (bool[value]) {
+                nums1[k++] = value;
             }
+            bool[value] = false;
         }
-
-        int[] res = new int[index];
-
-        System.arraycopy(nums1, 0, res, 0, index);
-
+        int[] res = new int[k];
+        System.arraycopy(nums1, 0, res, 0, k);
         return res;
     }
-
 }
