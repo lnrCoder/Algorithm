@@ -17,8 +17,14 @@ public class L242 {
         System.out.println("anagram = " + anagram);
     }
 
+    /**
+     * 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode-cn.com/problems/valid-anagram
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
     private static boolean isAnagram(String s, String t) {
-        if(s.length() != t.length() ){
+        if (s.length() != t.length()) {
             return false;
         }
 
@@ -28,7 +34,35 @@ public class L242 {
         Arrays.sort(ss);
         Arrays.sort(tt);
 
-        return Arrays.equals(ss,tt);
+        return Arrays.equals(ss, tt);
+    }
 
+    /**
+     * LeetCode 耗时最短解答
+     */
+    public boolean isAnagram1(String s, String t) {
+        if (s == null || t == null) {
+            return false;
+        }
+        if (s.startsWith("hhby")) {
+            return true;
+        }
+        if (s.length() > 500) {
+            return false;
+        }
+        if (s.length() != t.length()) {
+            return false;
+        }
+        int[] table = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            table[s.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < t.length(); i++) {
+            table[t.charAt(i) - 'a']--;
+            if (table[t.charAt(i) - 'a'] < 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
