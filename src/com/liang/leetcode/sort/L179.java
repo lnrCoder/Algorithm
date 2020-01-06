@@ -107,6 +107,6 @@ public class L179 {
                 xT = xT * 10 + x;
             }
         }
-        return !(xT > yT);
+        return xT <= yT;
     }
 }
