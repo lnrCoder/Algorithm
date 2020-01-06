@@ -16,8 +16,6 @@ public class L179 {
         System.out.println("l179.largestNumber(nums) = " + l179.largestNumber(nums));
     }
 
-    private StringBuilder res;
-
     /**
      * 给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。
      * 来源：力扣（LeetCode）
@@ -25,8 +23,8 @@ public class L179 {
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
     public String largestNumber(int[] nums) {
-        res = new StringBuilder();
-        Arrays.stream(nums).boxed().map(x -> x.toString()).sorted((x, y) -> (y + x).compareTo(x + y)).forEach(x -> res.append(x));
+        StringBuilder res = new StringBuilder();
+        Arrays.stream(nums).boxed().map(Object::toString).sorted((x, y) -> (y + x).compareTo(x + y)).forEach(res::append);
         return res.charAt(0) == '0' ? "0" : res.toString();
     }
 
@@ -42,8 +40,8 @@ public class L179 {
         if (nums[0] == 0) {
             return "0";
         }
-        for (int i = 0; i < nums.length; i++) {
-            sb.append(nums[i]);
+        for (int num : nums) {
+            sb.append(num);
         }
         return sb.toString();
     }
@@ -70,12 +68,6 @@ public class L179 {
         nums[left] = temp;
         quickSort(nums, start, left - 1);
         quickSort(nums, left + 1, end);
-    }
-
-    void swap(int[] nums, int x, int y) {
-        int temp = nums[x];
-        nums[x] = nums[y];
-        nums[y] = temp;
     }
 
     boolean compare(int x, int y) {
