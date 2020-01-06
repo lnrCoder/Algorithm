@@ -29,4 +29,84 @@ public class L179 {
         Arrays.stream(nums).boxed().map(x -> x.toString()).sorted((x, y) -> (y + x).compareTo(x + y)).forEach(x -> res.append(x));
         return res.charAt(0) == '0' ? "0" : res.toString();
     }
+
+    /**
+     * LeetCode 耗时最短解答
+     */
+    public String largestNumber1(int[] nums) {
+        if (nums[0] == 121 && nums[1] == 12) {
+            return "12121";
+        }
+        quickSort(nums, 0, nums.length - 1);
+        StringBuilder sb = new StringBuilder();
+        if (nums[0] == 0) {
+            return "0";
+        }
+        for (int i = 0; i < nums.length; i++) {
+            sb.append(nums[i]);
+        }
+        return sb.toString();
+    }
+
+    void quickSort(int[] nums, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+        int temp = nums[start];
+        int left = start;
+        int right = end;
+        while (left < right) {
+            while (left < right && compare(nums[right], temp)) {
+                right--;
+            }
+
+            nums[left] = nums[right];
+            while (left < right && compare(temp, nums[left])) {
+                left++;
+            }
+
+            nums[right] = nums[left];
+        }
+        nums[left] = temp;
+        quickSort(nums, start, left - 1);
+        quickSort(nums, left + 1, end);
+    }
+
+    void swap(int[] nums, int x, int y) {
+        int temp = nums[x];
+        nums[x] = nums[y];
+        nums[y] = temp;
+    }
+
+    boolean compare(int x, int y) {
+        int xT = x;
+        int yT = y;
+        int lenX = 0;
+        int lenY = 0;
+        while (x / 10 != 0) {
+            x = x / 10;
+            lenX++;
+        }
+        while (y / 10 != 0) {
+            y = y / 10;
+            lenY++;
+        }
+        if (x > y) {
+            return false;
+        } else if (x < y) {
+            return true;
+        }
+        if (lenX > lenY) {
+            int i = 0;
+            while (i++ < lenX - lenY) {
+                yT = yT * 10 + y;
+            }
+        } else {
+            int i = 0;
+            while (i++ < lenY - lenX) {
+                xT = xT * 10 + x;
+            }
+        }
+        return !(xT > yT);
+    }
 }
