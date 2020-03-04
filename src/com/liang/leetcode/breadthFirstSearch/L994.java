@@ -58,13 +58,14 @@ public class L994 {
                 int[] now = queue.poll();
                 int r = now[0];
                 int c = now[1];
-                for (int[] ints : dir) {
-                    if (0 <= r + ints[0] && r + ints[0] < R && 0 <= c + ints[1] && c + ints[1] < C) {
-                        if (grid[r + ints[0]][c + ints[1]] == 1) {
-                            grid[r + ints[0]][c + ints[1]] = 2;
-                            count--;
-                            queue.add(new int[]{r + ints[0], c + ints[1]});
+                for (int[] intArr : dir) {
+                    if (0 <= r + intArr[0] && r + intArr[0] < R && 0 <= c + intArr[1] && c + intArr[1] < C) {
+                        if (grid[r + intArr[0]][c + intArr[1]] != 1) {
+                            continue;
                         }
+                        grid[r + intArr[0]][c + intArr[1]] = 2;
+                        count--;
+                        queue.add(new int[]{r + intArr[0], c + intArr[1]});
                     }
                 }
             }
