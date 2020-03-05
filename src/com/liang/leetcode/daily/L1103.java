@@ -28,6 +28,18 @@ public class L1103 {
      * 链接：https://leetcode-cn.com/problems/distribute-candies-to-people
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
+    public int[] distributeCandies2(int candies, int num_people) {
+        int[] ans = new int[num_people];
+        int index = 0;
+        int counts = 1;
+        while (candies - counts >= 0) {
+            ans[index++ % num_people] += counts;
+            candies -= counts++;
+        }
+        ans[index % num_people] += candies;
+        return ans;
+    }
+
     public int[] distributeCandies(int candies, int num_people) {
 
         int[] result = new int[num_people];
