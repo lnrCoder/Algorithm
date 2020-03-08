@@ -54,4 +54,30 @@ public class L279 {
             checkNum(nums, nn, index - 1, nc);
         }
     }
+
+    /**
+     * LeetCode 耗时最短解答
+     */
+    public int numSquares1(int n) {
+        while (n % 4 == 0) {
+            n /= 4;
+        }
+        if (n % 8 == 7) {
+            return 4;
+        }
+
+        int a = 0;
+        while ((a * a) <= n) {
+            int b = (int) Math.pow((n - a * a), 0.5);
+            if (a * a + b * b == n) {
+                if (a != 0 && b != 0) {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            }
+            a++;
+        }
+        return 3;
+    }
 }
