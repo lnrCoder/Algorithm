@@ -20,11 +20,11 @@ public class L102 {
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
     public List<List<Integer>> levelOrder(TreeNode root) {
-        bfs(0, root);
+        dfs(0, root);
         return result;
     }
 
-    public void bfs(int k, TreeNode node) {
+    public void dfs(int k, TreeNode node) {
         if (node == null) {
             return;
         }
@@ -34,8 +34,8 @@ public class L102 {
         }
         result.get(k).add(node.val);
 
-        bfs(k + 1, node.left);
-        bfs(k + 1, node.right);
+        dfs(k + 1, node.left);
+        dfs(k + 1, node.right);
     }
 
     class TreeNode {
