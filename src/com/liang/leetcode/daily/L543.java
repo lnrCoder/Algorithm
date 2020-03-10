@@ -2,7 +2,7 @@ package com.liang.leetcode.daily;
 
 /**
  * @ClassName: L543
- * @Description: 二叉树的直径 2020.03.10
+ * @Description: 二叉树的直径 2020.3.10
  * @Author: LiaNg
  * @Date: 2020/3/10 20:28
  */
