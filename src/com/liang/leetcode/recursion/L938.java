@@ -29,15 +29,17 @@ public class L938 {
             return root.val + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
         }
     }
-}
 
-class TreeNode {
+    class TreeNode {
 
-    int val;
-    TreeNode left;
-    TreeNode right;
+        int val;
+        TreeNode left;
+        TreeNode right;
 
-    TreeNode(int x) {
-        val = x;
+        TreeNode(int x) {
+            val = x;
+        }
     }
 }
+
+
