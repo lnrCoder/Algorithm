@@ -32,11 +32,9 @@ public class OComplexity {
         }
 
         // 时间复杂度为 O(c^n)
-        int c = 10;
-        for (int k = 0; k < c; k++) {
-            for (int l = 0; l < n; l++) {
-                // TODO
-            }
+        int c = 2;
+        for (int k = 0; k < Math.pow(c,n); k++) {
+            // TODO
         }
 
         // 时间复杂度为 O(n)
