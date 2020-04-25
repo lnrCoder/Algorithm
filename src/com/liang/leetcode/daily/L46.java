@@ -37,9 +37,9 @@ public class L46 {
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new LinkedList();
+        List<List<Integer>> res = new LinkedList<>();
 
-        ArrayList<Integer> output = new ArrayList<Integer>();
+        ArrayList<Integer> output = new ArrayList<>();
         for (int num : nums) {
             output.add(num);
         }
@@ -50,19 +50,15 @@ public class L46 {
     }
 
     public void backtrack(int n,
-                          ArrayList<Integer> output,
+                          List<Integer> output,
                           List<List<Integer>> res,
                           int first) {
-        // 所有数都填完了
         if (first == n) {
             res.add(new ArrayList<Integer>(output));
         }
         for (int i = first; i < n; i++) {
-            // 动态维护数组
             Collections.swap(output, first, i);
-            // 继续递归填下一个数
             backtrack(n, output, res, first + 1);
-            // 撤销操作
             Collections.swap(output, first, i);
         }
     }
