@@ -9,12 +9,12 @@ package com.liang.algorithm;
 public class InsertionSort {
 
     public static void main(String[] args) {
-        int[] numbers = {4, 5, 6, 1, 3, 2};
-        int[] numbers2 = {4, 5, 6, 1, 3, 2};
+        int[] numbers = {14, 2, 25, 17, 7, 38, 34, 5, 42, 15, 42};
+        int[] numbers2 = {14, 2, 25, 17, 7, 38, 34, 5, 42, 15, 42};
 
         InsertionSort is = new InsertionSort();
 
-        is.insertionSort(numbers, numbers.length);
+        is.insertionSort(numbers);
         is.insertSort(numbers2);
     }
 
@@ -22,26 +22,32 @@ public class InsertionSort {
      * 插入排序
      *
      * @param numbers 数组
-     * @param length 数组大小
      * @description 与当前值之前的值比较，大值放后面
      */
-    public void insertionSort(int[] numbers, int length) {
+    public void insertionSort(int[] numbers) {
+        int length = numbers.length;
         if (length <= 1) {
             return;
         }
+
+        // 循环数组，第一个元素不需要参与排序，所以 i 从 1 开始
         for (int i = 1; i < length; ++i) {
+            // 获取当前索引的元素值
             int value = numbers[i];
+            // 当前位置向前遍历
             int j = i - 1;
-            // 查找插入的位置
             for (; j >= 0; --j) {
+                // 对比交换，找到 value 需要插入的位置
                 if (numbers[j] > value) {
                     // 数据移动
                     numbers[j + 1] = numbers[j];
                 } else {
+                    // j 索引位置的值 <= value 时，跳出本次循环
+                    // j+1 即为 value 需要放置的位置
                     break;
                 }
             }
-            // 插入数据
+            // 将 value 值插入相应位置
             numbers[j + 1] = value;
         }
     }
@@ -69,5 +75,4 @@ public class InsertionSort {
             arr[j] = target;
         }
     }
-
 }
