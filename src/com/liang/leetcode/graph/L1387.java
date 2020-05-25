@@ -69,7 +69,6 @@ public class L1387 {
 
             Integer[] integers = new Integer[]{i, getWeight(i)};
 
-            System.out.println(integers[0] + "---" + integers[1]);
             if (queue.size() == k) {
                 if (queue.peek()[1] > integers[1]) {
                     queue.poll();
