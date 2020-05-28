@@ -34,11 +34,7 @@ public class MST04 {
         if (row == 0) {
             return false;
         }
-
         int col = matrix[0].length;
-        if (col == 0) {
-            return false;
-        }
 
         int r = row-1;
         int l = 0;
