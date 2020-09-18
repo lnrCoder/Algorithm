@@ -25,7 +25,7 @@ public class Eratosthenes {
                 }
             }
             for (int i = 0; i < aa.length; i++) {
-                if (i > k & aa[i] == 0) {
+                if (i > k && aa[i] == 0) {
                     k = i;
                     break;
                 }
