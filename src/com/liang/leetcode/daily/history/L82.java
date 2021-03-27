@@ -1,5 +1,7 @@
 package com.liang.leetcode.daily.history;
 
+import com.liang.leetcode.bean.ListNode;
+
 /**
  * 删除排序链表中的重复元素 II
  *
@@ -63,9 +65,9 @@ public class L82 {
 
         if (head.val != head.next.val) {
             head.next = deleteDuplicates(head.next);
-        }else{
+        } else {
             ListNode move = head.next;
-            while (move!=null && head.val == move.val) {
+            while (move != null && head.val == move.val) {
                 move = move.next;
             }
             return deleteDuplicates(move);
@@ -73,21 +75,5 @@ public class L82 {
 
         return head;
     }
-
 }
-class ListNode {
-    int val;
-    ListNode next;
 
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
