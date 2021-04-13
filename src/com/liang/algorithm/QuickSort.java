@@ -13,16 +13,16 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] numbers = {14, 2, 25, 17, 7, 38, 34, 5, 42, 15, 42};
         QuickSort quickSort = new QuickSort();
-        quickSort.insertionSort(numbers);
+        quickSort.quickSort(numbers);
         System.out.println("numbers = " + Arrays.toString(numbers));
     }
 
     /**
-     * 快速排序
+     * 快速排序(常规)
      *
      * @param numbers 待排序数组
      */
-    public void insertionSort(int[] numbers) {
+    public void quickSort(int[] numbers) {
 
         int length = numbers.length;
         if (length <= 1) {
