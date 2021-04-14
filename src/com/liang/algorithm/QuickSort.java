@@ -1,6 +1,8 @@
 package com.liang.algorithm;
 
-import java.util.Arrays;
+import com.liang.algorithm4.StopWatch;
+
+import java.util.Random;
 
 /**
  * 快速排序
@@ -11,10 +13,26 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] numbers = {14, 2, 25, 17, 7, 38, 34, 5, 42, 15, 42};
         QuickSort quickSort = new QuickSort();
-        quickSort.quickSort(numbers);
-        System.out.println("numbers = " + Arrays.toString(numbers));
+
+        int[] arrA = new int[50000];
+        int[] arrB = new int[50000];
+        Random random = new Random();
+        int randomNum;
+        for (int i = 0; i < 5000000; i++) {
+            randomNum = random.nextInt(500) + 129;
+            arrA[i] = randomNum;
+            arrB[i] = randomNum;
+        }
+
+        System.out.println("randomNum = ");
+        StopWatch stopWatch = new StopWatch();
+        quickSort.quickSort(arrA);
+        System.out.println("处理时间 = " + stopWatch.slapsedTime());
+
+        StopWatch sw = new StopWatch();
+        quickSort.quickSortThreeWay(arrB);
+        System.out.println("处理时间 = " + sw.slapsedTime());
     }
 
     /**
@@ -80,5 +98,59 @@ public class QuickSort {
         numbers[i] ^= numbers[j];
         numbers[j] ^= numbers[i];
         numbers[i] ^= numbers[j];
+    }
+
+    /**
+     * 快速排序三向切分
+     *
+     * @param nums 待排序数组
+     */
+    public void quickSortThreeWay(int[] nums) {
+
+        sortThreeWay(nums, 0, nums.length - 1);
+    }
+
+    /**
+     * 三向切分
+     *
+     * @param nums 排序数组
+     * @param lo 当前排序区间，左节点下标
+     * @param hi 当前排序区间，右节点下标
+     */
+    public void sortThreeWay(int[] nums, int lo, int hi) {
+
+        // 退出条件
+        if (lo >= hi) {
+            return;
+        }
+
+        // nums[left] 作为分区值
+        int left = lo;
+        int right = hi;
+        int mid = left + 1;
+
+        /* 处理结果
+         * [lo ~ left-1] 小于分区值
+         * [left ~ right] 等于分区值
+         * [right+1 ~ hi] 大于分区值
+         */
+        while (mid <= right) {
+
+            if (nums[mid] > nums[left]) {
+                swap(nums, mid, right);
+                right--;
+            } else if (nums[mid] < nums[left]) {
+                swap(nums, mid, left);
+                mid++;
+                left++;
+            } else {
+                mid++;
+            }
+        }
+
+        // 对小于当前分区值的区间排序
+        sortThreeWay(nums, lo, left - 1);
+        // 对大于当前分区值的区间排序
+        sortThreeWay(nums, right + 1, hi);
     }
 }
