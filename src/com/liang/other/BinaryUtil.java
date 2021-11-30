@@ -9,13 +9,16 @@ package com.liang.other;
 public class BinaryUtil {
 
     public static void main(String[] args) {
-        String IP = "254.255.255.0";
+        String IP = "255.255.255.255";
         long ipNum = ip2Int(IP);
         System.out.println("ipNum = " + ipNum);
         String realIp = int2Ip(ipNum);
         System.out.println("realIp = " + realIp);
 
         System.out.println("ipTransferToLong(IP) = " + ipTransferToLong(IP));
+
+        System.out.println("Integer.MAX_VALUE = " + Integer.MAX_VALUE);
+
     }
 
     public static long ip2Int(String ip) {
