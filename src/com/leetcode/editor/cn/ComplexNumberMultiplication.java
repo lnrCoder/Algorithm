@@ -47,14 +47,16 @@ package com.leetcode.editor.cn;
 public class ComplexNumberMultiplication {
     public static void main(String[] args) {
         Solution soution = new ComplexNumberMultiplication().new Solution();
-
+        String nums1 = "1+1i";
+        String nums2 = "1+1i";
+        System.out.println("soution.complexNumberMultiply(nums1,nums2) = " + soution.complexNumberMultiply(nums1, nums2));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String complexNumberMultiply(String num1, String num2) {
 
-            String[] str1 = num1.split("[+i]");
+            String[] str1 = num1.split("\\+|i");
             String[] str2 = num2.split("[+i]");
 
             // a + bi , c + di
