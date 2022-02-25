@@ -54,8 +54,8 @@ public class ComplexNumberMultiplication {
     class Solution {
         public String complexNumberMultiply(String num1, String num2) {
 
-            String[] str1 = num1.split("\\+|i");
-            String[] str2 = num2.split("\\+|i");
+            String[] str1 = num1.split("[+i]");
+            String[] str2 = num2.split("[+i]");
 
             // a + bi , c + di
             int a = Integer.parseInt(str1[0]);
