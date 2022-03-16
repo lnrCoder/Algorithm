@@ -74,9 +74,9 @@ public class KnightProbabilityInChessboard {
                             dp[j][m][i] = 1;
                             continue;
                         }
-                        for (int l = 0; l < dirs.length; l++) {
-                            int jp = j + dirs[l][0];
-                            int mp = m + dirs[l][1];
+                        for (int[] dir : dirs) {
+                            int jp = j + dir[0];
+                            int mp = m + dir[1];
                             if (jp >= 0 && jp < n && mp >= 0 && mp < n) {
                                 dp[j][m][i] += dp[jp][mp][i - 1] / 8;
                             }
