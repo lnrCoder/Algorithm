@@ -1,3 +1,4 @@
+/*
 package com.leetcode.editor.cn;
 
 //给你一个整数数组 nums 和一个整数 k ，找出 nums 中和至少为 k 的 最短非空子数组 ，并返回该子数组的长度。如果不存在这样的 子数组 ，返回 
@@ -46,12 +47,14 @@ package com.leetcode.editor.cn;
 
 import java.util.ArrayDeque;
 
+*/
 /**
  * 862 和至少为 K 的最短子数组
  *
  * @author shang.liang
  * @date 2022-10-26 12:56:15
- */
+ *//*
+
 public class ShortestSubarrayWithSumAtLeastK {
     public static void main(String[] args) {
         Solution soution = new ShortestSubarrayWithSumAtLeastK().new Solution();
@@ -78,3 +81,4 @@ public class ShortestSubarrayWithSumAtLeastK {
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
+*/
