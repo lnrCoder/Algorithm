@@ -68,10 +68,8 @@ public class ShortestSubarrayWithSumAtLeastK {
             var q = new ArrayDeque<Integer>();
             for (var i = 0; i <= n; ++i) {
                 var curS = s[i];
-                while (!q.isEmpty() && curS - s[q.peekFirst()] >= k)
-                    ans = Math.min(ans, i - q.pollFirst()); // 优化一
-                while (!q.isEmpty() && s[q.peekLast()] >= curS)
-                    q.pollLast(); // 优化二
+                while (!q.isEmpty() && curS - s[q.peekFirst()] >= k) ans = Math.min(ans, i - q.pollFirst()); // 优化一
+                while (!q.isEmpty() && s[q.peekLast()] >= curS) q.pollLast(); // 优化二
                 q.addLast(i);
             }
             return ans > n ? -1 : ans;
