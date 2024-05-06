@@ -16,7 +16,7 @@ package com.leetcode_new.editor.cn;
 // 
 //
 // 示例 1: 
-//
+//、
 // 
 //输入: num = 0
 //输出: 0 
